@@ -45,6 +45,10 @@ set(GAME_SRC
   Classes/GameScene.cpp
   Classes/BackgroundLayer.cpp
   Classes/GameplayLayer.cpp
+  Classes/SneakyInput/SneakyJoystick.cpp
+  Classes/SneakyInput/SneakyButton.cpp
+  Classes/SneakyInput/SneakyJoystickSkinnedBase.cpp
+  Classes/SneakyInput/SneakyButtonSkinnedBase.cpp
 )
 elseif ( WIN32 )
 set(GAME_SRC
@@ -55,6 +59,10 @@ set(GAME_SRC
   Classes/GameScene.cpp
   Classes/BackgroundLayer.cpp
   Classes/GameplayLayer.cpp
+  Classes/SneakyInput/SneakyJoystick.cpp
+  Classes/SneakyInput/SneakyButton.cpp
+  Classes/SneakyInput/SneakyJoystickSkinnedBase.cpp
+  Classes/SneakyInput/SneakyButtonSkinnedBase.cpp
 )
 endif()
 
