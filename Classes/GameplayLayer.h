@@ -25,4 +25,6 @@ private:
     SneakyJoystick *leftJoystick;
     SneakyButton *jumpButton;
     SneakyButton *attackButton;
+    
+    cocos2d::Size _visibleSize;
 };

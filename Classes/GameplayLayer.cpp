@@ -16,10 +16,10 @@ bool GameplayLayer::init()
         return false;
     }
     
-    Size visibleSize = Director::getInstance()->getVisibleSize();
+    _visibleSize = Director::getInstance()->getVisibleSize();
     
     vikingSprite = Sprite::create("sv_anim_1.png");
-    vikingSprite->setPosition(Vec2(visibleSize.width/2,visibleSize.height*0.17f));
+    vikingSprite->setPosition(Vec2(_visibleSize.width/2,_visibleSize.height*0.17f));
     this->addChild(vikingSprite);
     initJoystickAndButtons();
     scheduleUpdate();
@@ -79,8 +79,12 @@ void GameplayLayer::applyJoystick(SneakyJoystick *aJoystick,Node *tempNode, floa
 
     Vec2 newPosition =
         Vec2(tempNode->getPosition().x + scaledVelocity.x * dt,
-        tempNode->getPosition().y + scaledVelocity.y * dt);
+        tempNode->getPosition().y);
 
+    if(newPosition.x < tempNode->getContentSize().width * 0.3f)
+        newPosition.x = tempNode->getContentSize().width * 0.3f;
+    if(newPosition.x > _visibleSize.width - tempNode->getContentSize().width * 0.2f )
+        newPosition.x = _visibleSize.width - tempNode->getContentSize().width * 0.2f;
     tempNode->setPosition(newPosition);
 
     if (jumpButton->getIsActive()) {
